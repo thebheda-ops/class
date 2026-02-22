@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+  </head>
+  <body>
+    <!-- FORM -->
+    <h1>Form</h1>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input
+          placeholder="First Name"
+          type="text"
+          id="firstName"
+          name="firstName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input
+          placeholder="Last Name"
+          type="text"
+          id="lastName"
+          name="lastName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          placeholder="email@gmail.com"
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="gender">Male</label>
+        <input
+          placeholder="Male"
+          type="checkbox"
+          id="male"
+          name="male"
+          optional
+        />
+        <label for="gender">Female</label>
+        <input
+          placeholder="Female"
+          type="checkbox"
+          id="female"
+          name="female"
+          optional
+        />
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
+      </div>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+          <option value="">Select your country</option>
+          <option value="usa">USA</option>
+        </select>
+      </div>
+      <input class="btn" type="submit" value="Submit" />
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

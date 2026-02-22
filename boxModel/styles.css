@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+.shadows-into-light-regular {
+  font-family: "Shadows Into Light", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Jaini&family=Shadows+Into+Light&display=swap");
+.jaini-regular {
+  font-family: "Jaini", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  font-family: "Jaini";
+}
+.box {
+  width: 200px;
+  height: 200px;
+  margin-top: 16px;
+  border: 2px solid #333;
+  background: #a0ffdb;
+}

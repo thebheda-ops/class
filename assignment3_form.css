@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-top: #cfd5d8;
+  --bg-mid: #b9c0c4;
+  --bg-bottom: #9fa8ad;
+  --text-main: #20262b;
+  --text-muted: #3f4a52;
+  --panel-bg: #e6eaed;
+  --panel-border: #8f9aa1;
+  --field-bg: #f2f4f5;
+  --field-border: #8b97a0;
+  --accent: #4d6472;
+  --accent-hover: #3f5562;
+  --secondary-bg: #b9c2c8;
+  --secondary-hover: #a5b0b7;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--bg-top) 0%, var(--bg-mid) 55%, var(--bg-bottom) 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 28px 16px 40px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 22px;
+  color: #1f2b33;
+}
+
+form {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 22px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(24, 30, 35, 0.2);
+}
+
+fieldset {
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 14px;
+  background: #dde2e6;
+}
+
+legend {
+  padding: 0 8px;
+  font-weight: 700;
+  color: #25313a;
+}
+
+label,
+p {
+  display: block;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--field-border);
+  border-radius: 8px;
+  background: var(--field-bg);
+  color: #1f2a31;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(77, 100, 114, 0.25);
+}
+
+.inline-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.inline-options input[type="radio"],
+.inline-options input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.inline-options label {
+  margin: 0;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  background: var(--accent);
+  color: #eef3f6;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(39, 52, 61, 0.3);
+}
+
+button.secondary {
+  background: var(--secondary-bg);
+  color: #243039;
+}
+
+button.secondary:hover {
+  background: var(--secondary-hover);
+  box-shadow: none;
+}

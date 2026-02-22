@@ -1,0 +1,22 @@
+.main-box {
+  height: 600px;
+  width: 300px;
+  border: 2px solid blue;
+}
+.box {
+  height: 80px;
+  width: 80px;
+  border: 2px solid blue;
+}
+.box1 {
+  position: sticky;
+  top: 2px;
+}
+.box2 {
+  /* position: sticky; */
+  top: 100px;
+  position: absolute;
+}
+.box3 {
+  /* position: fixed; */
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3 - HTML Forms</title>
+    <link rel="stylesheet" href="assignment3_form.css" />
+  </head>
+  <body>
+    <h1>Student Course Enrollment System</h1>
+
+    <!-- Student Registration Form -->
+    <form action="#" method="post">
+      <!-- Personal Information Section -->
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your full name"
+          required
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Create a password"
+          required
+        />
+
+        <p>Gender:</p>
+        <div class="inline-options">
+          <input type="radio" id="male" name="gender" value="Male" required />
+          <label for="male">Male</label>
+
+          <input type="radio" id="female" name="gender" value="Female" />
+          <label for="female">Female</label>
+
+          <input type="radio" id="other" name="gender" value="Other" />
+          <label for="other">Other</label>
+        </div>
+      </fieldset>
+
+      <!-- Course and Skills Section -->
+      <fieldset>
+        <legend>Course Details</legend>
+
+        <label for="course">Course:</label>
+        <select id="course" name="course" required>
+          <option value="" disabled selected>Select a course</option>
+          <option value="BCA">BCA</option>
+          <option value="BSc IT">BSc IT</option>
+          <option value="BTech">BTech</option>
+          <option value="MCA">MCA</option>
+        </select>
+
+        <p>Skills:</p>
+        <div class="inline-options">
+          <input type="checkbox" id="html" name="skills" value="HTML" />
+          <label for="html">HTML</label>
+
+          <input type="checkbox" id="css" name="skills" value="CSS" />
+          <label for="css">CSS</label>
+
+          <input type="checkbox" id="js" name="skills" value="JavaScript" />
+          <label for="js">JavaScript</label>
+
+          <input type="checkbox" id="python" name="skills" value="Python" />
+          <label for="python">Python</label>
+        </div>
+      </fieldset>
+
+      <!-- Additional Information Section -->
+      <fieldset>
+        <legend>Additional Information</legend>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
+
+        <label for="address">Address:</label>
+        <textarea
+          id="address"
+          name="address"
+          rows="4"
+          placeholder="Enter your address"
+          required
+        ></textarea>
+      </fieldset>
+
+      <!-- Form Actions Section -->
+      <div class="actions">
+        <button type="submit">Submit</button>
+        <button type="reset" class="secondary">Reset</button>
+      </div>
+    </form>
+  </body>
+</html>
