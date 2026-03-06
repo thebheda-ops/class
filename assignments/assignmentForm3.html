@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Course Enrollment Form</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ── Reset & Base ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0d0f1a;
+        --surface: #13162b;
+        --card: #1a1e35;
+        --border: #2a2f50;
+        --accent: #6c63ff;
+        --accent2: #ff6584;
+        --text: #e8eaf6;
+        --muted: #7b80a8;
+        --input-bg: #0f1224;
+        --radius: 12px;
+      }
+
+      body {
+        background-color: var(--bg);
+        background-image:
+          radial-gradient(
+            ellipse 80% 60% at 20% -10%,
+            rgba(108, 99, 255, 0.18) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 60% 50% at 85% 110%,
+            rgba(255, 101, 132, 0.12) 0%,
+            transparent 55%
+          );
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 16px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--text);
+      }
+
+      /* ── Wrapper ── */
+      .wrapper {
+        width: 100%;
+        max-width: 680px;
+      }
+
+      /* ── Header ── */
+      .header {
+        text-align: center;
+        margin-bottom: 36px;
+      }
+
+      .header .badge {
+        display: inline-block;
+        background: rgba(108, 99, 255, 0.15);
+        border: 1px solid rgba(108, 99, 255, 0.35);
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 5px 14px;
+        border-radius: 100px;
+        margin-bottom: 16px;
+      }
+
+      .header h1 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(26px, 5vw, 38px);
+        font-weight: 800;
+        line-height: 1.15;
+        background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .header p {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 8px;
+      }
+
+      /* ── Form Card ── */
+      form {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 36px 40px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+      }
+
+      /* ── Fieldset ── */
+      fieldset {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 24px 16px;
+        margin-bottom: 28px;
+        background: var(--surface);
+      }
+
+      legend {
+        font-family: "Syne", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        padding: 0 10px;
+      }
+
+      /* ── Form Grid ── */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .field:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ── Labels ── */
+      label {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+
+      /* ── Inputs ── */
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        background: var(--input-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 11px 14px;
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        outline: none;
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(0.6);
+        cursor: pointer;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #3d4266;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.18);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 90px;
+      }
+
+      select option {
+        background: var(--card);
+      }
+
+      /* ── Radio & Checkbox Group ── */
+      .radio-group,
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 4px;
+      }
+
+      .radio-group label,
+      .checkbox-group label {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
+        color: var(--text);
+        cursor: pointer;
+        background: var(--input-bg);
+        border: 1px solid var(--border);
+        padding: 8px 14px;
+        border-radius: 8px;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      .radio-group label:hover,
+      .checkbox-group label:hover {
+        border-color: var(--accent);
+        background: rgba(108, 99, 255, 0.08);
+      }
+
+      .radio-group input,
+      .checkbox-group input {
+        accent-color: var(--accent);
+        width: 15px;
+        height: 15px;
+      }
+
+      /* ── Buttons ── */
+      .btn-row {
+        display: flex;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        flex: 1;
+        padding: 13px;
+        border: none;
+        border-radius: 10px;
+        font-family: "Syne", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s,
+          opacity 0.15s;
+      }
+
+      input[type="submit"] {
+        background: linear-gradient(135deg, var(--accent), #9b59f5);
+        color: #fff;
+        box-shadow: 0 6px 24px rgba(108, 99, 255, 0.35);
+      }
+
+      input[type="submit"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(108, 99, 255, 0.45);
+      }
+
+      input[type="reset"] {
+        background: transparent;
+        color: var(--muted);
+        border: 1px solid var(--border);
+      }
+
+      input[type="reset"]:hover {
+        border-color: var(--accent2);
+        color: var(--accent2);
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 520px) {
+        form {
+          padding: 24px 18px;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Page Header -->
+      <div class="header">
+        <div class="badge">Assignment 3</div>
+        <h1>Course Enrollment<br />Registration</h1>
+        <p>Fill in your details to enroll in a course.</p>
+      </div>
+
+      <!-- Main Registration Form -->
+      <form action="#" method="post">
+        <!-- Section 1: Personal Information -->
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <!-- Name & Email side by side -->
+          <div class="grid-2">
+            <!-- Name Input -->
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+
+            <!-- Email Input -->
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@email.com"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password & DOB side by side -->
+          <div class="grid-2">
+            <!-- Password Input -->
+            <div class="field">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a password"
+                required
+              />
+            </div>
+
+            <!-- Date of Birth Input -->
+            <div class="field">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" name="dob" required />
+            </div>
+          </div>
+
+          <!-- Gender Radio Buttons -->
+          <div class="field">
+            <label>Gender</label>
+            <div class="radio-group">
+              <label
+                ><input type="radio" name="gender" value="male" required />
+                Male</label
+              >
+              <label
+                ><input type="radio" name="gender" value="female" />
+                Female</label
+              >
+              <label
+                ><input type="radio" name="gender" value="other" /> Other</label
+              >
+            </div>
+          </div>
+
+          <!-- Address Textarea -->
+          <div class="field">
+            <label for="address">Address</label>
+            <textarea
+              id="address"
+              name="address"
+              placeholder="Enter your full address"
+              required
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Section 2: Course Information -->
+        <fieldset>
+          <legend>Course Information</legend>
+
+          <!-- Course Dropdown -->
+          <div class="field">
+            <label for="course">Select Course</label>
+            <select id="course" name="course" required>
+              <option value="">— Choose a Course —</option>
+              <option value="cs">Computer Science</option>
+              <option value="it">Information Technology</option>
+              <option value="math">Mathematics</option>
+              <option value="physics">Physics</option>
+              <option value="english">English</option>
+            </select>
+          </div>
+
+          <!-- Skills Checkboxes -->
+          <div class="field">
+            <label>Skills</label>
+            <div class="checkbox-group">
+              <label
+                ><input type="checkbox" name="skills" value="html" />
+                HTML</label
+              >
+              <label
+                ><input type="checkbox" name="skills" value="css" /> CSS</label
+              >
+              <label
+                ><input type="checkbox" name="skills" value="js" />
+                JavaScript</label
+              >
+              <label
+                ><input type="checkbox" name="skills" value="python" />
+                Python</label
+              >
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Submit and Reset Buttons -->
+        <div class="btn-row">
+          <input type="submit" value="Submit Enrollment" />
+          <input type="reset" value="Reset Form" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
