@@ -1,0 +1,163 @@
+:root {
+  --paper: #f7f3ea;
+  --ink: #1c1c1c;
+  --accent: #145a32;
+  --muted: #6f6a5f;
+  --border: #c9c3b7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  background: linear-gradient(135deg, #e8e1d4, #f6efe5);
+  color: var(--ink);
+}
+
+.sheet {
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--paper);
+  border: 2px solid var(--border);
+  padding: 32px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.sheet__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.sheet__header h1 {
+  margin: 0 0 6px 0;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+.badge {
+  text-align: right;
+  border: 2px solid var(--accent);
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.badge strong {
+  display: block;
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  padding: 20px 0;
+}
+
+.info__block p {
+  margin: 6px 0;
+}
+
+.info__block span {
+  font-weight: 700;
+}
+
+.marks {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+}
+
+.marks th,
+.marks td {
+  border: 1px solid var(--border);
+  padding: 10px;
+  text-align: center;
+}
+
+.marks th {
+  background: #e0d6c4;
+  font-size: 15px;
+}
+
+.marks tbody tr:nth-child(even) {
+  background: #f1ebdf;
+}
+
+.marks tfoot td {
+  font-weight: 700;
+  background: #ddd2bf;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 20px 0 30px;
+}
+
+.summary__item {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: center;
+  background: #f4eee2;
+}
+
+.summary__item p {
+  margin: 0 0 6px;
+  color: var(--muted);
+}
+
+.sheet__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 2px solid var(--border);
+  padding-top: 20px;
+}
+
+.sign {
+  flex: 1;
+  text-align: center;
+}
+
+.sign span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.line {
+  border-bottom: 2px solid var(--ink);
+  height: 28px;
+}
+
+@media (max-width: 640px) {
+  .sheet {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .sheet__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .badge {
+    width: 100%;
+  }
+}
