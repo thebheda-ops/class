@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinFlow - Financial App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+      <div class="login-container">
+        <div class="logo">
+          <i class="fas fa-wallet"></i>
+          <h1>FinFlow</h1>
+        </div>
+        <p class="tagline">Your finances, simplified.</p>
+        <form id="login-form">
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email Address"
+              value="user@finflow.com"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              value="password123"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-primary">Sign In</button>
+        </form>
+        <p class="demo-hint">Demo: Click Sign In to continue</p>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="screen">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <i class="fas fa-wallet"></i>
+          <h2>FinFlow</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-item active" data-tab="overview">
+            <i class="fas fa-th-large"></i>
+            <span>Overview</span>
+          </a>
+          <a href="#" class="nav-item" data-tab="accounts">
+            <i class="fas fa-university"></i>
+            <span>Accounts</span>
+          </a>
+          <a href="#" class="nav-item" data-tab="transactions">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Transactions</span>
+          </a>
+          <a href="#" class="nav-item" data-tab="transfer">
+            <i class="fas fa-paper-plane"></i>
+            <span>Transfer</span>
+          </a>
+          <a href="#" class="nav-item" data-tab="bills">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>Bills</span>
+          </a>
+          <a href="#" class="nav-item" data-tab="budget">
+            <i class="fas fa-chart-pie"></i>
+            <span>Budget</span>
+          </a>
+          <a href="#" class="nav-item" id="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+          <div class="header-left">
+            <button class="menu-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+            <h1 id="page-title">Overview</h1>
+          </div>
+          <div class="header-right">
+            <div class="notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </div>
+            <div class="user-profile">
+              <img
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=user"
+                alt="User"
+              />
+              <span>John Doe</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </header>
+
+        <!-- Tab Content -->
+        <div class="content-area">
+          <!-- Overview Tab -->
+          <div id="overview" class="tab-content active">
+            <!-- Balance Cards -->
+            <div class="balance-cards">
+              <div class="balance-card primary">
+                <div class="card-header">
+                  <span>Total Balance</span>
+                  <i class="fas fa-eye"></i>
+                </div>
+                <h2 class="balance-amount">$24,589.00</h2>
+                <div class="card-footer">
+                  <span class="change positive">
+                    <i class="fas fa-arrow-up"></i> 2.4%
+                  </span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+              <div class="balance-card">
+                <div class="card-header">
+                  <span>Income</span>
+                  <i class="fas fa-arrow-down"></i>
+                </div>
+                <h2 class="balance-amount income">$8,450.00</h2>
+                <div class="card-footer">
+                  <span class="period">This Month</span>
+                </div>
+              </div>
+              <div class="balance-card">
+                <div class="card-header">
+                  <span>Expenses</span>
+                  <i class="fas fa-arrow-up"></i>
+                </div>
+                <h2 class="balance-amount expense">$3,280.00</h2>
+                <div class="card-footer">
+                  <span class="period">This Month</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+              <h3>Quick Actions</h3>
+              <div class="actions-grid">
+                <button class="action-btn" data-action="send">
+                  <div class="action-icon">
+                    <i class="fas fa-paper-plane"></i>
+                  </div>
+                  <span>Send</span>
+                </button>
+                <button class="action-btn" data-action="request">
+                  <div class="action-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                  </div>
+                  <span>Request</span>
+                </button>
+                <button class="action-btn" data-action="bills">
+                  <div class="action-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                  </div>
+                  <span>Pay Bills</span>
+                </button>
+                <button class="action-btn" data-action="topup">
+                  <div class="action-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                  </div>
+                  <span>Top Up</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="recent-transactions">
+              <div class="section-header">
+                <h3>Recent Transactions</h3>
+                <a href="#" class="view-all">View All</a>
+              </div>
+              <div class="transactions-list" id="transactions-list">
+                <!-- Transactions will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Spending Chart -->
+            <div class="spending-chart">
+              <div class="section-header">
+                <h3>Spending Overview</h3>
+                <select class="period-select">
+                  <option>This Week</option>
+                  <option>This Month</option>
+                  <option>This Year</option>
+                </select>
+              </div>
+              <div class="chart-container">
+                <div class="chart-bars">
+                  <div
+                    class="chart-bar"
+                    style="--height: 40%; --color: #6366f1"
+                  >
+                    <span class="bar-value">$120</span>
+                    <span class="bar-label">Mon</span>
+                  </div>
+                  <div
+                    class="chart-bar"
+                    style="--height: 65%; --color: #6366f1"
+                  >
+                    <span class="bar-value">$195</span>
+                    <span class="bar-label">Tue</span>
+                  </div>
+                  <div
+                    class="chart-bar"
+                    style="--height: 35%; --color: #6366f1"
+                  >
+                    <span class="bar-value">$105</span>
+                    <span class="bar-label">Wed</span>
+                  </div>
+                  <div
+                    class="chart-bar"
+                    style="--height: 80%; --color: #f43f5e"
+                  >
+                    <span class="bar-value">$240</span>
+                    <span class="bar-label">Thu</span>
+                  </div>
+                  <div
+                    class="chart-bar"
+                    style="--height: 55%; --color: #6366f1"
+                  >
+                    <span class="bar-value">$165</span>
+                    <span class="bar-label">Fri</span>
+                  </div>
+                  <div
+                    class="chart-bar"
+                    style="--height: 90%; --color: #f43f5e"
+                  >
+                    <span class="bar-value">$270</span>
+                    <span class="bar-label">Sat</span>
+                  </div>
+                  <div
+                    class="chart-bar"
+                    style="--height: 45%; --color: #6366f1"
+                  >
+                    <span class="bar-value">$135</span>
+                    <span class="bar-label">Sun</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accounts Tab -->
+          <div id="accounts" class="tab-content">
+            <div class="accounts-grid">
+              <div class="account-card">
+                <div class="account-icon checking">
+                  <i class="fas fa-university"></i>
+                </div>
+                <div class="account-details">
+                  <span class="account-name">Main Checking</span>
+                  <span class="account-number">****4521</span>
+                </div>
+                <div class="account-balance">
+                  <span>$12,450.00</span>
+                </div>
+              </div>
+              <div class="account-card">
+                <div class="account-icon savings">
+                  <i class="fas fa-piggy-bank"></i>
+                </div>
+                <div class="account-details">
+                  <span class="account-name">Savings Account</span>
+                  <span class="account-number">****7832</span>
+                </div>
+                <div class="account-balance">
+                  <span>$8,920.00</span>
+                </div>
+              </div>
+              <div class="account-card">
+                <div class="account-icon credit">
+                  <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="account-details">
+                  <span class="account-name">Credit Card</span>
+                  <span class="account-number">****9012</span>
+                </div>
+                <div class="account-balance">
+                  <span class="negative">-$1,245.00</span>
+                </div>
+              </div>
+              <div class="account-card add-new">
+                <i class="fas fa-plus"></i>
+                <span>Add New Account</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transfer Tab -->
+          <div id="transfer" class="tab-content">
+            <div class="transfer-form-container">
+              <div class="transfer-tabs">
+                <button class="transfer-tab active" data-transfer="send">
+                  Send Money
+                </button>
+                <button class="transfer-tab" data-transfer="request">
+                  Request Money
+                </button>
+              </div>
+              <form id="transfer-form">
+                <div class="input-group">
+                  <label>Recipient</label>
+                  <input
+                    type="text"
+                    placeholder="Enter name or email"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label>Amount</label>
+                  <div class="amount-input">
+                    <span class="currency">$</span>
+                    <input type="number" placeholder="0.00" min="1" required />
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label>From Account</label>
+                  <select>
+                    <option>Main Checking - $12,450.00</option>
+                    <option>Savings Account - $8,920.00</option>
+                  </select>
+                </div>
+                <div class="input-group">
+                  <label>Note (Optional)</label>
+                  <input type="text" placeholder="What's this for?" />
+                </div>
+                <button type="submit" class="btn-primary btn-large">
+                  <i class="fas fa-paper-plane"></i> Send Money
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Bills Tab -->
+          <div id="bills" class="tab-content">
+            <div class="bills-header">
+              <h3>Upcoming Bills</h3>
+              <button class="btn-secondary">
+                <i class="fas fa-plus"></i> Add Bill
+              </button>
+            </div>
+            <div class="bills-list">
+              <div class="bill-item">
+                <div class="bill-icon electric">
+                  <i class="fas fa-bolt"></i>
+                </div>
+                <div class="bill-details">
+                  <span class="bill-name">Electricity</span>
+                  <span class="bill-due">Due Mar 25</span>
+                </div>
+                <div class="bill-amount">$125.00</div>
+                <button class="btn-pay">Pay</button>
+              </div>
+              <div class="bill-item">
+                <div class="bill-icon water">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <div class="bill-details">
+                  <span class="bill-name">Water</span>
+                  <span class="bill-due">Due Mar 28</span>
+                </div>
+                <div class="bill-amount">$45.00</div>
+                <button class="btn-pay">Pay</button>
+              </div>
+              <div class="bill-item">
+                <div class="bill-icon internet">
+                  <i class="fas fa-wifi"></i>
+                </div>
+                <div class="bill-details">
+                  <span class="bill-name">Internet</span>
+                  <span class="bill-due">Due Apr 1</span>
+                </div>
+                <div class="bill-amount">$79.99</div>
+                <button class="btn-pay">Pay</button>
+              </div>
+              <div class="bill-item paid">
+                <div class="bill-icon phone">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="bill-details">
+                  <span class="bill-name">Phone Plan</span>
+                  <span class="bill-due">Paid Mar 15</span>
+                </div>
+                <div class="bill-amount">$55.00</div>
+                <span class="paid-badge">Paid</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Budget Tab -->
+          <div id="budget" class="tab-content">
+            <div class="budget-overview">
+              <div class="budget-card">
+                <h3>Monthly Budget</h3>
+                <div class="budget-amount">
+                  <span class="spent">$2,450</span>
+                  <span class="total">/ $4,000</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 61%"></div>
+                </div>
+                <p class="budget-note">$1,550 remaining</p>
+              </div>
+            </div>
+            <div class="budget-categories">
+              <h3>Budget Categories</h3>
+              <div class="category-list">
+                <div class="category-item">
+                  <div class="category-info">
+                    <i class="fas fa-utensils" style="color: #f43f5e"></i>
+                    <span>Food & Dining</span>
+                  </div>
+                  <div class="category-progress">
+                    <span class="spent">$450</span>
+                    <span class="limit">/ $600</span>
+                  </div>
+                  <div class="progress-bar small">
+                    <div
+                      class="progress"
+                      style="width: 75%; background: #f43f5e"
+                    ></div>
+                  </div>
+                </div>
+                <div class="category-item">
+                  <div class="category-info">
+                    <i class="fas fa-shopping-cart" style="color: #6366f1"></i>
+                    <span>Shopping</span>
+                  </div>
+                  <div class="category-progress">
+                    <span class="spent">$320</span>
+                    <span class="limit">/ $500</span>
+                  </div>
+                  <div class="progress-bar small">
+                    <div
+                      class="progress"
+                      style="width: 64%; background: #6366f1"
+                    ></div>
+                  </div>
+                </div>
+                <div class="category-item">
+                  <div class="category-info">
+                    <i class="fas fa-car" style="color: #f59e0b"></i>
+                    <span>Transportation</span>
+                  </div>
+                  <div class="category-progress">
+                    <span class="spent">$180</span>
+                    <span class="limit">/ $300</span>
+                  </div>
+                  <div class="progress-bar small">
+                    <div
+                      class="progress"
+                      style="width: 60%; background: #f59e0b"
+                    ></div>
+                  </div>
+                </div>
+                <div class="category-item">
+                  <div class="category-info">
+                    <i class="fas fa-film" style="color: #10b981"></i>
+                    <span>Entertainment</span>
+                  </div>
+                  <div class="category-progress">
+                    <span class="spent">$95</span>
+                    <span class="limit">/ $200</span>
+                  </div>
+                  <div class="progress-bar small">
+                    <div
+                      class="progress"
+                      style="width: 47%; background: #10b981"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transactions Tab -->
+          <div id="transactions" class="tab-content">
+            <div class="transactions-header">
+              <h3>All Transactions</h3>
+              <div class="filter-options">
+                <select class="filter-select">
+                  <option>All Categories</option>
+                  <option>Food & Dining</option>
+                  <option>Shopping</option>
+                  <option>Transportation</option>
+                  <option>Entertainment</option>
+                  <option>Bills</option>
+                </select>
+                <select class="filter-select">
+                  <option>All Time</option>
+                  <option>This Week</option>
+                  <option>This Month</option>
+                  <option>This Year</option>
+                </select>
+              </div>
+            </div>
+            <div class="all-transactions-list" id="all-transactions-list">
+              <!-- All transactions will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+      <i class="fas fa-check-circle"></i>
+      <span id="toast-message">Success!</span>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
